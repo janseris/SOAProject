@@ -11,10 +11,13 @@ Project team members:
 - Jan Seriš, 456435
 
 Project parts:
+
 Illia
 - temperature devices/sensors [Quarkus]
+
 Ladislav
 - traffic devices/sensors [Quarkus]
+
 Jan
 - fridge devices/sensors [.NET]
 - dashboard GUI [.NET]
