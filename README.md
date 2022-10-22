@@ -19,5 +19,5 @@ Ladislav
 - traffic devices/sensors [Quarkus]
 
 Jan
-- fridge devices/sensors [.NET]
+- [fridge devices/sensors microservice](https://gitlab.com/janseris/Microservices.IoT.Fridge) [.NET]
 - dashboard GUI [.NET]
