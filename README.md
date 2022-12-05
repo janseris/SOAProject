@@ -2,7 +2,7 @@
 Microservices Quarkus project
 
 Project theme:
-- IoT/Sensors with dashboard      Cancel changes
+- IoT/Sensors with dashboard
 
 
 Project team members:
@@ -19,5 +19,6 @@ Ladislav
 - traffic devices/sensors [Quarkus]
 
 Jan
-- [fridge devices/sensors microservice](https://gitlab.com/janseris/Microservices.IoT.Fridge) [.NET]
-- dashboard GUI [.NET]
+- [fridge devices and sensors management server](https://gitlab.com/janseris/Microservices.IoT.Fridge) [.NET]
+- [fridge devices and sensors management client](https://gitlab.com/janseris/Microservices.IoT.Fridge.Client) [.NET]
+
