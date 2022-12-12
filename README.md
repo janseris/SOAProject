@@ -1,5 +1,5 @@
-# SOAProject
-Microservices Quarkus project
+# Service-Oriented Architecture project - ESensors
+Microservices Quarkus & ASP.NET project
 
 Project theme:
 - IoT/Sensors with dashboard
