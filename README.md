@@ -19,6 +19,6 @@ Ladislav
 - traffic devices/sensors [Quarkus]
 
 Jan
-- [fridge devices and sensors management server](https://gitlab.com/janseris/Microservices.IoT.Fridge) [.NET]
-- [fridge devices and sensors management client](https://gitlab.com/janseris/Microservices.IoT.Fridge.Client) [.NET]
+- Microservices simulating fridge sensors - description here: [fridge devices and sensors management server](https://gitlab.com/janseris/Microservices.IoT.Fridge) [.NET]
+- Desktop application integrating all services: [fridge devices and sensors management client](https://gitlab.com/janseris/Microservices.IoT.Fridge.Client) [.NET]
 
