@@ -17,6 +17,7 @@ Illia
 
 Ladislav
 - traffic devices/sensors [Quarkus]
+- description: https://gitlab.com/LacikeD/tm-service#provided-code
 
 Jan
 - Microservices simulating fridge sensors - description here: [fridge devices and sensors management server](https://gitlab.com/janseris/Microservices.IoT.Fridge) [.NET]
