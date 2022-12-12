@@ -1,0 +1,12 @@
+run prometheus.exe in prometheus folder
+- it reads the prometheus.yml settings file
+
+- then we can access it on http://localhost:9090/
+- we can check if it can access our application on http://localhost:9090/targets
+
+- when prometheus is running, grafana can display data which it collects
+- prometheus collects data from /metrics endpoint from our application
+
+
+
+app metrics -> prometheus -> grafana

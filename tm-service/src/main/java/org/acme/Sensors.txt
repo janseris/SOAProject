@@ -1,0 +1,12 @@
+Brno-Stefanikova,Radar,50
+Brno-Skacelova,Radar,50
+Brno-Bratislavska,Grid,80
+Brno-Olomoucka,Camera,70
+Ostrava-Frydecka,Radar,70
+Ostrava-Bohuminska,Grid,70
+Ostrava-Jicinska,Camera,90
+Olomouc-Pionirska,Camera,50
+Olomouc-Prostejovska,Radar,80
+Praha-Nabrezni,Radar,70
+Praha-Vaclavska,Grid,40
+Praha-SvatoplukaCecha,Radar,70

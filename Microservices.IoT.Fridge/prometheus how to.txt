@@ -1,0 +1,9 @@
+prometheus has to be configured in .yml file (YAML)
+
+a job for our application has to be added there
+
+Prometheus is the accessible on 
+
+http://localhost:9090/graph
+
+- prometheus cannot connect to HTTPS localhost server without complicated configuration

@@ -1,0 +1,310 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Microservices.IoT.Sensor.RestAPI",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/FridgeSensor/sensorData": {
+      "get": {
+        "tags": [
+          "FridgeSensor"
+        ],
+        "summary": "Main function which should be periodically called",
+        "operationId": "GetSensorData",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FridgeSensorStats"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FridgeSensorStats"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FridgeSensorStats"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FridgeSensor/foodHealthStats": {
+      "get": {
+        "tags": [
+          "FridgeSensor"
+        ],
+        "summary": "Returns data for a graph which shows how many percent of food are healthy/neutral/unhealthy",
+        "operationId": "GetFoodHealthStats",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "number",
+                    "format": "double"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "number",
+                    "format": "double"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "number",
+                    "format": "double"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FridgeSensor/food": {
+      "get": {
+        "tags": [
+          "FridgeSensor"
+        ],
+        "operationId": "GetFood",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FoodSensorModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FoodSensorModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FoodSensorModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FridgeSensor/occupiedVolumePercent": {
+      "get": {
+        "tags": [
+          "FridgeSensor"
+        ],
+        "operationId": "GetOccupiedVolumePercent",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FridgeSensor/expiredFoodItems": {
+      "get": {
+        "tags": [
+          "FridgeSensor"
+        ],
+        "operationId": "GetExpiredFoodItemsCount",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/FridgeSensor/events": {
+      "get": {
+        "tags": [
+          "FridgeSensor"
+        ],
+        "operationId": "GetCurrentEvents",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EventSensorModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EventSensorModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EventSensorModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EventSensorModel": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "from": {
+            "type": "string",
+            "description": "Automatically filled when the event starts",
+            "format": "date-time"
+          },
+          "to": {
+            "type": "string",
+            "description": "Filled when the event ends",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FoodSensorModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "open": {
+            "type": "boolean",
+            "description": "If the food item's packaging had been open"
+          },
+          "initialWeightGrams": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currentWeightGrams": {
+            "type": "integer",
+            "description": "Is reduced by consuming the food",
+            "format": "int32"
+          },
+          "expirationDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FridgeSensorStats": {
+        "type": "object",
+        "properties": {
+          "temperature": {
+            "type": "number",
+            "description": "Degrees celsius",
+            "format": "double"
+          },
+          "powerConsumption": {
+            "type": "integer",
+            "description": "Watts",
+            "format": "int32"
+          },
+          "isDoorOpen": {
+            "type": "boolean"
+          },
+          "currentWarnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Information retrieved within one tick of a sensor from its REST API"
+      }
+    }
+  }
+}

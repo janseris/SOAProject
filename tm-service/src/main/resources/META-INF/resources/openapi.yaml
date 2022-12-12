@@ -1,0 +1,254 @@
+openapi: 3.0.3
+info:
+  title: Traffic Manager API(development)
+  description: Service providing access to Traffic sencosrs managment and their measurments
+  contact:
+    email: ladislavdbr@gmail.com
+  version: 1.0.2
+paths:
+  /TM/help:
+    get:
+      tags:
+      - TM Resource
+      operationId: help
+      responses:
+        "200":
+          description: Help meassage display
+          content:
+            text/plain: {
+              schema: {
+                type: string
+              }
+            }
+  /TM/help-measurments:
+    get:
+      tags:
+      - TM Resource
+      operationId: helpMeasurments
+      responses:
+        "200":
+          description: Formating of the measurments request arguments
+          content:
+            text/plain: {
+              schema: {
+                type: string
+              }
+            }
+  /TM/help-sensors:
+    get:
+      tags:
+      - TM Resource
+      operationId: helpSensors
+      responses:
+        "200":
+          description: Formating of the sensor request arguments
+          content:
+            text/plain: {
+              schema: {
+                type: string
+              }
+            }
+  /TM/measurments-accept/{args}:
+    get:
+      tags:
+      - TM Resource
+      operationId: measurmentsAccept
+      parameters:
+      - name: args
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Measurments data accept confirmed
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Traffic_Sensor_Measurment'
+        "400":
+          description: Invalid request arguments
+        "403":
+          description: Function cannot be accessed now
+  /TM/measurments-repeat/{args}:
+    get:
+      tags:
+      - TM Resource
+      operationId: measurmentsRepeat
+      parameters:
+      - name: args
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Measurments data repeat confirmed
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Traffic_Sensor_Measurment'
+        "400":
+          description: Invalid request arguments
+        "403":
+          description: Function cannot be accessed now
+  /TM/measurments-request/{args}:
+    get:
+      tags:
+      - TM Resource
+      operationId: measurmentsRequest
+      parameters:
+      - name: args
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Measurments data sent confirmed
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Traffic_Sensor_Measurment'
+        "400":
+          description: Invalid request arguments
+        "403":
+          description: Function cannot be accessed now
+  /TM/sensors-accept/{conditions}:
+    get:
+      tags:
+      - TM Resource
+      operationId: sensorsAccept
+      parameters:
+      - name: conditions
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Sensor data accept confirmed
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Traffic_Sensor'
+        "400":
+          description: Invalid request arguments
+        "403":
+          description: Function cannot be accessed now
+  /TM/sensors-repeat/{conditions}:
+    get:
+      tags:
+      - TM Resource
+      operationId: sensorsRepeat
+      parameters:
+      - name: conditions
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Repeat sensor data confirmed
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Traffic_Sensor'
+        "400":
+          description: Invalid request arguments
+        "403":
+          description: Function cannot be accessed now
+  /TM/sensors-request/{conditions}:
+    get:
+      tags:
+      - TM Resource
+      operationId: sensorsRequest
+      parameters:
+      - name: conditions
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Sensor data sent confirmed
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Traffic_Sensor'
+        "400":
+          description: Invalid request arguments
+        "403":
+          description: Function cannot be accessed now
+  /TM/status:
+    get:
+      tags:
+      - TM Resource
+      operationId: askStatus
+      responses:
+        "200":
+          description: Current service status
+          content:
+            text/plain: {
+              schema: {
+                type: string
+              }
+            }
+components:
+  schemas:
+    LocalDateTime:
+      format: date-time
+      type: string
+      example: 2022-03-10T12:15:50
+    Traffic_Sensor:
+      type: object
+      properties:
+        _location:
+          type: string
+        _sensorType:
+          $ref: '#/components/schemas/Traffic_Sensor_Type'
+        _sensorData:
+          type: array
+          items:
+            $ref: '#/components/schemas/Traffic_Sensor_Measurment'
+        _speedLimit:
+          format: int32
+          type: integer
+    Traffic_Sensor_Measurment:
+      type: object
+      properties:
+        _timestamp:
+          $ref: '#/components/schemas/LocalDateTime'
+        _vehicleSpeed:
+          format: int32
+          type: integer
+        _vehicleType:
+          $ref: '#/components/schemas/Vehicle_Type'
+    Traffic_Sensor_Type:
+      enum:
+      - Camera
+      - Radar
+      - Grid
+      type: string
+    Vehicle_Type:
+      enum:
+      - Motocycle
+      - Car
+      - Van
+      - Truck
+      - Bus
+      - Unknown
+      type: string
+

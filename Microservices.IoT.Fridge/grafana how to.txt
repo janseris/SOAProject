@@ -1,0 +1,10 @@
+run grafana-server in C:\Program Files\GrafanaLabs\grafana\bin
+
+then grafana is accessible on http://localhost:3000/
+
+Login:
+admin
+admin
+
+
+basic ASP.NET Core dashboard ID: 10915

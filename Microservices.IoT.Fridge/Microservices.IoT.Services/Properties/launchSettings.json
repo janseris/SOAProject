@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Microservices.IoT.Services": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:51165;http://localhost:51166"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+Microservices - instead of port 12345 use actual ports
+
+https://localhost:12345/swagger/index.html
+https://localhost:12345/swagger/v1/swagger.json
+
+- they are run using two command line arguments:
+
+microservice.exe "fridge name" port
+
+
+
+
+Main API
+
+https://localhost:7258/swagger/index.html
+https://localhost:7258/swagger/v1/swagger.json
+https://localhost:7258/metrics
+
+HTTP:
+
+http://localhost:5258/swagger/index.html
+http://localhost:5258/metrics
