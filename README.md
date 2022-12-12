@@ -14,6 +14,7 @@ Project parts:
 
 Illia
 - temperature devices/sensors [Quarkus]
+- description: https://github.com/friendlycoconut/quarkus-temp-sensor-REST-api
 
 Ladislav
 - traffic devices/sensors [Quarkus]
